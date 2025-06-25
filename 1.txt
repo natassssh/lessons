@@ -1,3 +1,5 @@
 Changes No. 1
 Changes No. 2
 Changes No. 3 from remote repository
+
+from branch_with_conflicts
