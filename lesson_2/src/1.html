@@ -3,96 +3,80 @@
     <head>
         <meta charset="UTF-8">
         <title>Оценка сериалов</title>
-        <link href=“style.css” rel=“stylesheet”>
+        <link href="style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-    <div class="form-container">
         <h1>Оставьте отзыв о сериале</h1>
         <form action="/testing.php" method="post">
-            <div class="form-group">
+            <p>
                 <label for="clientName">Ваш ник:</label>
                 <input type="text" id="clientName" name="clientName" required>
-            </div>
-            <br>
-            <div class="form-group">
+            </p>
+            <p>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
-            </div>
-            <br>
-            <div class="form-group">
+            </p>
+            <p>
                 <label for="serialName">Название сериала:</label>
                 <input type="text" id="serialName" name="serialName" required>
-            </div>
-            <br>
-            <div class="form-group">
+            </p>
+            <p>
                 <label for="rating">Оценка от 1 до 10:</label>
                 <input type="range" id="rating" name="rating" min="0" max="10" value="5">
-            </div>
-            <br>
-            <div class="form-group">
+            </p>
                 <label for="clientReview">Ваш отзыв о сериале:</label>
                 <textarea id="clientReview" name="clientReview"></textarea>
-            </div>
             <br>
-            <div class="form-group">
-                <p>Какие жанры вы предпочитаете?</p>
-                        <input type="checkbox" id="genre1" name="genres" value="drama"><label for="genre1">Драма</label>
-                        <input type="checkbox" id="genre2" name="genres" value="comedy"><label for="genre2">Комедия</label>
-                        <input type="checkbox" id="genre3" name="genres" value="fantasy"><label for="genre3">Фэнтези</label>
-                        <input type="checkbox" id="genre4" name="genres" value="scifi"><label for="genre4">Научная фантастика</label>
-                        <input type="checkbox" id="genre5" name="genres" value="horror"><label for="genre5">Ужасы</label>
-                        <input type="checkbox" id="genre6" name="genres" value="action"><label for="genre6">Боевик</label>
-                        <input type="checkbox" id="genre7" name="genres" value="thriller"><label for="genre7">Триллер</label>
-                        <input type="checkbox" id="genre8" name="genres" value="detective"><label for="genre8">Детектив</label>
-            </div>
+            <p>Какие жанры вы предпочитаете?</p>
+            <input type="checkbox" id="genre1" name="genres" value="drama"><label for="genre1">Драма</label>
+            <input type="checkbox" id="genre2" name="genres" value="comedy"><label for="genre2">Комедия</label>
+            <input type="checkbox" id="genre3" name="genres" value="fantasy"><label for="genre3">Фэнтези</label>
+            <input type="checkbox" id="genre4" name="genres" value="scifi"><label for="genre4">Научная фантастика</label>
+            <input type="checkbox" id="genre5" name="genres" value="horror"><label for="genre5">Ужасы</label>
+            <input type="checkbox" id="genre6" name="genres" value="action"><label for="genre6">Боевик</label>
+            <input type="checkbox" id="genre7" name="genres" value="thriller"><label for="genre7">Триллер</label>
+            <input type="checkbox" id="genre8" name="genres" value="detective"><label for="genre8">Детектив</label>
             <br>
-            <div class="form-group">
-                <p>Как часто вы смотрите сериалы?</p>
-                <p>
-                    <input type="radio" id="frequency1" name="frequency" value="daily" required><label for="frequency1">Ежедневно</label>
-                    <input type="radio" id="frequency2" name="frequency" value="weekly"><label for="frequency2">Раз в неделю</label>
-                    <input type="radio" id="frequency3" name="frequency" value="monthly"><label for="frequency3">Раз в месяц</label>
-                    <input type="radio" id="frequency4" name="frequency" value="rarely"><label for="frequency4">Реже</label>
-                </p>
-            </div>
+            <p>Как часто вы смотрите сериалы?</p>
+            <p>
+                <input type="radio" id="frequency1" name="frequency" value="daily" required><label for="frequency1">Ежедневно</label>
+                <input type="radio" id="frequency2" name="frequency" value="weekly"><label for="frequency2">Раз в неделю</label>
+                <input type="radio" id="frequency3" name="frequency" value="monthly"><label for="frequency3">Раз в месяц</label>
+                <input type="radio" id="frequency4" name="frequency" value="rarely"><label for="frequency4">Реже</label>
+            </p>
             <br>
-            <div class="form-group">
-                <label for="favorite">Какое персонаж нравится вам больше:</label>
-                <select id="favorite" name="favorite">
-                    <option value="">-- Выберите персонажа --</option>
-                    <option value="student">Ученик старшей школы/Студент</option>
-                    <option value="doc">Доктор</option>
-                    <option value="vampire">Вампир</option>
-                    <option value="superhero">Супергерой</option>
-                    <option value="investigator">Следователь</option>
-                    <option value="policeman">Полицейский</option>
-                    <option value="ghostbuster">Охотник за привидениями</option>
-                    <option value="prince">Принц/Принцесса</option>
-                    <option value="killer">Киллер</option>
-                    <option value="historical_character">Викинг/Исторический персонаж</option>
-                </select>
-            </div>
+            <label for="favorite">Сериал с каким персонажем вы бы наиболее вероятно посмотрели?</label>
+            <select id="favorite" name="favorite">
+                <option value="">-- Выберите персонажа --</option>
+                <option value="student">Ученик старшей школы/Студент</option>
+                <option value="doc">Доктор</option>
+                <option value="vampire">Вампир</option>
+                <option value="superhero">Супергерой</option>
+                <option value="investigator">Следователь</option>
+                <option value="policeman">Полицейский</option>
+                <option value="ghostbuster">Охотник за привидениями</option>
+                <option value="prince">Принц/Принцесса</option>
+                <option value="killer">Киллер</option>
+                <option value="historical_character">Викинг/Исторический персонаж</option>
+            </select>
             <br>
-            <div class="form-group">
-                <label for="platforms">На каких платформах вы смотрите сериалы? (удерживайте Ctrl для выбора нескольких):</label>
-                <select id="platforms" name="platforms" multiple>
-                    <option value="netflix">Netflix</option>
-                    <option value="kinopoisk">Кинопоиск</option>
-                    <option value="ivi">IVI</option>
-                    <option value="zona">Zona</option>
-                    <option value="okko">Okko</option>
-                    <option value="wink">Wink</option>
-                    <option value="start">Start</option>
-                    <option value="premier">Premier</option>
-                    <option value="amediateka">Amediateka</option>
-                    <option value="kion">KION</option>
-                    <option value="other">Другое</option>
-                </select>
-            </div>
+            <label for="platforms">На каких платформах вы смотрите сериалы? (удерживайте Ctrl для выбора нескольких):</label>
+            <select id="platforms" name="platforms" multiple>
+                <option value="netflix">Netflix</option>
+                <option value="kinopoisk">Кинопоиск</option>
+                <option value="ivi">IVI</option>
+                <option value="zona">Zona</option>
+                <option value="okko">Okko</option>
+                <option value="wink">Wink</option>
+                <option value="start">Start</option>
+                <option value="premier">Premier</option>
+                <option value="amediateka">Amediateka</option>
+                <option value="kion">KION</option>
+                <option value="other">Другое</option>
+            </select>
             <br>
             <p><button type="submit">Отправить оценку</button></p>
         </form>
-    </div>
     <br>
     <a href="./2.html">Посмотреть страницу сериала "Очень странные дела"</a>
     </body>
