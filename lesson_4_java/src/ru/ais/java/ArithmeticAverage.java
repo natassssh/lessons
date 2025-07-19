@@ -26,7 +26,7 @@ public class ArithmeticAverage {
         } while ((start <= 1) || (end < start));
 
         double average = calculateAverage(start, end);
-        double averageEvenNumbers = calculateAverageOfEvenNumbers(start, end);
+        double averageEvenNumbers = calculateEvenNumbersAverage(start, end);
 
         System.out.printf("Среднее арифметическое чисел от %d до %d: %.2f%n", start, end, average);
         System.out.printf("Среднее арифметическое только четных чисел от %d до %d: %.2f%n", start, end, averageEvenNumbers);
@@ -44,7 +44,7 @@ public class ArithmeticAverage {
         return (double) sum / count;
     }
 
-    public static double calculateAverageOfEvenNumbers(int start, int end) {
+    public static double calculateEvenNumbersAverage(int start, int end) {
         int sum = 0;
         int count = 0;
 
