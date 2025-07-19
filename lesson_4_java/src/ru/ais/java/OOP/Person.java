@@ -13,7 +13,7 @@ public class Person {
         this.name = name;
         this.middleName = middleName;
         this.familyName = familyName;
-        setAge(age);
+        this.age = age;
     }
 
     public static int getMinAge() {
