@@ -4,12 +4,14 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
 
 public class OnlineStore {
@@ -73,5 +75,39 @@ public class OnlineStore {
         // Проверка наличия в корзине добавленного товара
         WebElement elem = driver.findElement(By.xpath("//tbody/tr[1]//a"));
         Assertions.assertEquals(expectedItem, elem.getText(), "Товар не найден в корзине");
+    }
+
+
+    @Test
+    public void testProductDisplay() throws InterruptedException {
+        // Открыть раздел "Books"
+        driver.findElement(By.xpath("//*[@class='top-menu']//a[contains(text(),'Books')]")).click();
+        Thread.sleep(2000);
+
+        // Проверить отображение 8 товаров
+        selectItemsPerPage("8");
+        verifyItemsDisplayed(8);
+
+        // Проверить отображение 4 товаров
+        selectItemsPerPage("4");
+        verifyItemsDisplayed(4);
+    }
+
+
+    private void selectItemsPerPage(String value) {
+        WebElement displayDropdown = driver.findElement(By.xpath("//*[@id='products-pagesize']"));
+        displayDropdown.click();
+        Select select = new Select(displayDropdown);
+        select.selectByVisibleText(value);
+    }
+
+
+    private void verifyItemsDisplayed(int expectedCount) {
+        int actualCount = driver.findElements(By.xpath("//*[@class='product-grid']/div")).size();
+
+        Assertions.assertTrue(actualCount <= expectedCount,
+                "Отображается " + actualCount + " товаров, хотя должно быть не более " + expectedCount);
+
+        System.out.println("При отображении " + expectedCount + " товаров на странице, найдено: " + actualCount);
     }
 }
