@@ -1,6 +1,7 @@
 package ru.academits;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -70,16 +71,12 @@ public class OrderForm {
         String expectedError3 = "Необходимо заполнить поле Количество.";
         String expectedError4 = "Необходимо заполнить поле Дата доставки.";
 
-        verifyErrorText(expectedError1, 1);
-        verifyErrorText(expectedError2, 2);
-        verifyErrorText(expectedError3, 3);
-        verifyErrorText(expectedError4, 4);
+        SoftAssertions softAssert = new SoftAssertions();
+        softAssert.assertThat(driver.findElement(By.xpath("//*[@id='form_1006']//ul/li[1]")).getText()).isEqualTo(expectedError1);
+        softAssert.assertThat(driver.findElement(By.xpath("//*[@id='form_1006']//ul/li[2]")).getText()).isEqualTo(expectedError2);
+        softAssert.assertThat(driver.findElement(By.xpath("//*[@id='form_1006']//ul/li[3]")).getText()).isEqualTo(expectedError3);
+        softAssert.assertThat(driver.findElement(By.xpath("//*[@id='form_1006']//ul/li[4]")).getText()).isEqualTo(expectedError4);
+        softAssert.assertAll();
 
     }
-
-    private void verifyErrorText(String expectedError, int i) {
-        WebElement error = driver.findElement(By.xpath("//*[@id='form_1006']//ul/li[" + i + "]"));
-        Assertions.assertEquals(expectedError, error.getText(), "Текст ошибки валидации не совпадает");
-    }
-
 }

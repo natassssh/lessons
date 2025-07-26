@@ -54,7 +54,7 @@ public class OnlineStore {
 
     @ParameterizedTest
     @ValueSource(strings = {"Laptop", "Smartphone", "Fiction"})
-    public void testAddToCart  (String searchQuery) throws InterruptedException {
+    public void testAddToCart  (String searchQuery) {
         // Ввод поискового запроса
         WebElement searchBox = driver.findElement(By.xpath("//*[@id='small-searchterms']"));
         searchBox.sendKeys(searchQuery);
@@ -62,14 +62,12 @@ public class OnlineStore {
 
         // Нажатие кнопки "Add to cart" для первого товара и сохранение наименования товара
         WebElement addToCart = driver.findElement(By.xpath("//*[@value='Add to cart'][1]"));
-        Thread.sleep(2000);
+
         String expectedItem = driver.findElement(By.xpath("//*[@class='item-box'][1]//h2/a")).getText();
         addToCart.click();
-        Thread.sleep(2000);
 
         // Переход в корзину
         WebElement cart = driver.findElement(By.xpath("//*[contains(text(), 'Shopping cart')]"));
-        Thread.sleep(2000);
         cart.click();
 
         // Проверка наличия в корзине добавленного товара
@@ -79,10 +77,9 @@ public class OnlineStore {
 
 
     @Test
-    public void testProductDisplay() throws InterruptedException {
+    public void testProductDisplay() {
         // Открыть раздел "Books"
         driver.findElement(By.xpath("//*[@class='top-menu']//a[contains(text(),'Books')]")).click();
-        Thread.sleep(2000);
 
         // Проверить отображение 8 товаров
         selectItemsPerPage("8");

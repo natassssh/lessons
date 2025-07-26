@@ -104,8 +104,6 @@ public class DemoQA {
         verifySubmittedData("//tbody/tr[8]/td[2]", picture);
         verifySubmittedData("//tbody/tr[9]/td[2]", currentAddress);
         verifySubmittedData("//tbody/tr[10]/td[2]", state + " " + city);
-
-        Thread.sleep(5000);
     }
 
     private void fillInputField(String xpath, String value) {
