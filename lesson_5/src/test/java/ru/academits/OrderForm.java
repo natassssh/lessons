@@ -11,6 +11,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class OrderForm {
     private WebDriver driver;
@@ -70,6 +74,9 @@ public class OrderForm {
         String expectedError2 = "Необходимо заполнить поле E-mail.";
         String expectedError3 = "Необходимо заполнить поле Количество.";
         String expectedError4 = "Необходимо заполнить поле Дата доставки.";
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.className("errorSummary")));
 
         SoftAssertions softAssert = new SoftAssertions();
         softAssert.assertThat(driver.findElement(By.xpath("//*[@id='form_1006']//ul/li[1]")).getText()).isEqualTo(expectedError1);
