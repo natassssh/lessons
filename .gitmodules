@@ -1,3 +1,6 @@
 [submodule "lesson_6"]
 	path = lesson_6
 	url = https://github.com/natassssh/lesson_6.git
+[submodule "lesson_8_Restful_Booker"]
+	path = lesson_8_Restful_Booker
+	url = https://github.com/natassssh/lesson_8_Restful_Booker.git
