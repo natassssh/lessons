@@ -1,1 +1,1 @@
-Домашняя задача Framework находится в папке lesson_6
+Домашняя задача  RestAssured.Reqres и RestAssured.Restful Booker в папках lesson_8
