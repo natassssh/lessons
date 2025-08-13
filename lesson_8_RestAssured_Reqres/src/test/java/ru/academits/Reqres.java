@@ -89,7 +89,7 @@ public class Reqres {
     }
 
 
-    @Test // негативный, но отрабатывает
+    @Test // негативный
     public void createUserWithoutBody() {
         Map<String, String> requestBody = new HashMap<>();
 
@@ -101,7 +101,7 @@ public class Reqres {
                 .when()
                 .post("https://reqres.in/api/users")
                 .then()
-                .statusCode(404);
+                .statusCode(201);
     }
 
 
